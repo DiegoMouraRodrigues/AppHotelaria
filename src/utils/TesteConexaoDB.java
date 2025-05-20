@@ -14,12 +14,16 @@ public class TesteConexaoDB {
     public static void main(String[] args) {
         Conexao conexao = new Conexao();
         Connection condb = conexao.conectar();
+
         if (condb != null) {
             System.out.println("Conexão estabelcida com sucesso!");
+
             try {
                 condb.close();
                 System.out.println("Conexão encerrada!");
-            } catch (Exception erro) {
+            }
+
+            catch (Exception erro) {
                 System.out.println("Erro ao encerrar a conexão: " + erro.getMessage());
             }
         } else {

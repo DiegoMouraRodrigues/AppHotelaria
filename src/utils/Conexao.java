@@ -22,11 +22,12 @@ public class Conexao {
             conb = DriverManager.getConnection(url, usuario, senha);
             return conb;
 
-            //Inicializar o driver ja carregado por meio do metodo getConnection(IP,porta,nome do banco, usuario,senha)
-
         } catch (SQLException erro) {
             System.out.print("Erro ao conectar ao Banco de Dados: " + erro);
             return null;
+
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
         }
     }
 }
